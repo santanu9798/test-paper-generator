@@ -1,0 +1,40 @@
+<div class="heading">
+  <h2>Test Generator Web Application</h2>
+</div>
+<div class="loginsingup-container">
+  <!-- RESISTER FORM -->
+  <form ngif="activeform == 'register'">
+    <h2>REGISTER</h2>
+    <div class="form-group">
+      <input type="text" name="name" [(ngModel)]="registerobj.name" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <input type="email" name="email" [(ngModel)]="registerobj.email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <input type="password" name="password" [(ngModel)]="registerobj.password" placeholder="Password">
+    </div>
+    <button type="submit" (click)="registerForm()">Register</button>
+    <p (click)="toggleForm('login')">
+      Already have an account ? <span class="highlighted">LOGIN</span>
+    </p>
+
+  </form>
+
+  <!-- LOGING FORM -->
+  <form ngif="activeform == 'login'">
+    <h2>LOGIN</h2>
+    <div class="form-group">
+      <input type="email" name="email" [(ngModel)]="loginobj.email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <input type="password" name="password" [(ngModel)]="loginobj.password" placeholder="Password">
+    </div>
+    <button type="submit" (click)="loginForm()">Login</button>
+    <p (click)="toggleForm('register')">
+      Don't have an account ? <span class="highlighted">REGISTER</span>
+    </p>
+
+  </form>
+
+</div>
