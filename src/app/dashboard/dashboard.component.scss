@@ -1,0 +1,90 @@
+// Overall container for the dashboard
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Full viewport height
+  background-color: #f4f6f8; // Light gray background
+}
+
+// Main content area with sidebar and content
+.main-content {
+  flex: 1; // Takes up remaining space between header and footer
+  display: flex;
+}
+
+// Sidebar styling
+mat-sidenav {
+  width: 250px; // Fixed width for sidebar
+  background-color: #ffffff; // White background
+  border-right: 1px solid #e0e0e0; // Subtle border
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05); // Light shadow
+
+  app-sidebar {
+    display: block;
+    height: 100%;
+  }
+}
+
+// Main content styling
+mat-sidenav-content {
+  flex: 1; // Takes remaining space
+  padding: 20px;
+  background-color: #f4f6f8; // Matches container background
+}
+
+.content {
+  max-width: 1200px; // Limit content width
+  margin: 0 auto; // Center content
+
+  h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  mat-sidenav {
+    width: 200px; // Reduce sidebar width on smaller screens
+  }
+
+  mat-sidenav-content {
+    padding: 15px; // Reduce padding
+  }
+
+  .content {
+    h1 {
+      font-size: 24px; // Smaller heading
+    }
+    p {
+      font-size: 14px; // Smaller text
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-container {
+    flex-direction: column; // Stack elements vertically
+  }
+
+  mat-sidenav {
+    width: 100%; // Full width on mobile
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1000; // Ensure sidebar is above content
+  }
+
+  mat-sidenav-content {
+    padding: 10px;
+    margin-top: 60px; // Space for fixed header
+  }
+}

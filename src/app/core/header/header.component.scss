@@ -1,0 +1,14 @@
+mat-toolbar {
+  background-color: #1976d2; // Angular Material primary blue
+  color: white;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  .spacer {
+    flex: 1 1 auto; // Pushes content to the right
+  }
+
+  button {
+    margin-left: 10px;
+  }
+}

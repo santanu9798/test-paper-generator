@@ -1,0 +1,22 @@
+mat-nav-list {
+  padding: 0;
+
+  a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #f0f0f0; // Light gray hover effect
+    }
+
+    &.active {
+      background-color: #e0e0e0; // Active state
+      color: #1976d2; // Highlight active item
+    }
+  }
+}

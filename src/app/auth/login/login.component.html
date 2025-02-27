@@ -1,0 +1,21 @@
+<div class="login-container">
+  <h2>Login</h2>
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="login-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" name="email" [(ngModel)]="email" required email #emailInput="ngModel">
+      <mat-error *ngIf="emailInput.invalid && emailInput.touched">Please enter a valid email</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" name="password" [(ngModel)]="password" required #passwordInput="ngModel">
+      <mat-error *ngIf="passwordInput.invalid && passwordInput.touched">Password is required</mat-error>
+    </mat-form-field>
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" class="submit-button">
+      Login
+    </button>
+    <a routerLink="/auth/forgot-password" class="link">Forgot Password?</a>
+    <p>Not registered? <a routerLink="/auth/register" class="link">Sign Up</a></p>
+  </form>
+</div>
