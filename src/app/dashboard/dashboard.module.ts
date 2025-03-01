@@ -16,6 +16,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import {TestPaperComponent} from './test-paper/test-paper.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -36,9 +38,11 @@ import { MatIconModule } from '@angular/material/icon';
     DashboardComponent,
     DashboardHomeComponent,
     AddQuestionComponent,
+    TestPaperComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    MatExpansionModule
   ]
 })
 export class DashboardModule { }

@@ -1,0 +1,90 @@
+<div class="test-paper-container">
+  <h2>Create Test Paper</h2>
+  <form #testPaperForm="ngForm" (ngSubmit)="createTestPaper(testPaperForm)" class="test-paper-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" name="name" [(ngModel)]="name" required #nameInput="ngModel">
+      <mat-error *ngIf="nameInput.errors?.['required'] && nameInput.touched">Name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Course Name</mat-label>
+      <input matInput type="text" name="courseName" [(ngModel)]="courseName" required #courseNameInput="ngModel">
+      <mat-error *ngIf="courseNameInput.errors?.['required'] && courseNameInput.touched">Course name is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Course Code</mat-label>
+      <input matInput type="text" name="courseCode" [(ngModel)]="courseCode" required #courseCodeInput="ngModel">
+      <mat-error *ngIf="courseCodeInput.errors?.['required'] && courseCodeInput.touched">Course code is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Description</mat-label>
+      <input matInput type="text" name="description" [(ngModel)]="description" required #descriptionInput="ngModel">
+      <mat-error *ngIf="descriptionInput.errors?.['required'] && descriptionInput.touched">Description is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Total Marks</mat-label>
+      <input matInput type="number" name="totalMarks" [(ngModel)]="totalMarks" required min="0" #totalMarksInput="ngModel">
+      <mat-error *ngIf="totalMarksInput.errors?.['required'] && totalMarksInput.touched">Total marks are required</mat-error>
+      <mat-error *ngIf="totalMarksInput.errors?.['min'] && totalMarksInput.touched">Total marks must be at least 0</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Total Questions</mat-label>
+      <input matInput type="number" name="totalQuestions" [(ngModel)]="totalQuestions" required min="0" #totalQuestionsInput="ngModel">
+      <mat-error *ngIf="totalQuestionsInput.errors?.['required'] && totalQuestionsInput.touched">Total questions are required</mat-error>
+      <mat-error *ngIf="totalQuestionsInput.errors?.['min'] && totalQuestionsInput.touched">Total questions must be at least 0</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Credit</mat-label>
+      <input matInput type="number" name="credit" [(ngModel)]="credit" required min="0" #creditInput="ngModel">
+      <mat-error *ngIf="creditInput.errors?.['required'] && creditInput.touched">Credit is required</mat-error>
+      <mat-error *ngIf="creditInput.errors?.['min'] && creditInput.touched">Credit must be at least 0</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Total Time (minutes)</mat-label>
+      <input matInput type="number" name="totalTime" [(ngModel)]="totalTime" required min="0" #totalTimeInput="ngModel">
+      <mat-error *ngIf="totalTimeInput.errors?.['required'] && totalTimeInput.touched">Total time is required</mat-error>
+      <mat-error *ngIf="totalTimeInput.errors?.['min'] && totalTimeInput.touched">Total time must be at least 0</mat-error>
+    </mat-form-field>
+
+    <div class="distributions">
+      <h3>Distributions</h3>
+      <div *ngFor="let dist of distributions; let i = index" class="distribution">
+        <mat-form-field appearance="outline" class="distribution-type">
+          <mat-label>Type</mat-label>
+          <mat-select [name]="'distType' + i" [(ngModel)]="dist.type" required>
+            <mat-option *ngFor="let type of questionTypes" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="distribution-count">
+          <mat-label>Count</mat-label>
+          <input matInput type="number" [name]="'distCount' + i" [(ngModel)]="dist.count" required min="0">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="distribution-marks">
+          <mat-label>Marks per Question</mat-label>
+          <input matInput type="number" [name]="'distMarks' + i" [(ngModel)]="dist.marksPerQuestion" required min="0">
+        </mat-form-field>
+        <button mat-icon-button color="warn" (click)="removeDistribution(i)" [disabled]="distributions.length === 1">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <button mat-button color="primary" type="button" (click)="addDistribution()">Add Distribution</button>
+    </div>
+
+    <div class="success" *ngIf="successMessage">{{ successMessage }}</div>
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="testPaperForm.invalid" class="submit-button">
+      Create Test Paper
+    </button>
+    <button mat-button color="warn" type="button" (click)="router.navigate(['/dashboard'])" class="cancel-button">
+      Cancel
+    </button>
+  </form>
+</div>

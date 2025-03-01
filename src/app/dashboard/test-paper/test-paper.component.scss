@@ -1,0 +1,93 @@
+.test-paper-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+.test-paper-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.distributions {
+  padding: 15px 0;
+
+  h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .distribution {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    .distribution-type {
+      flex: 1;
+    }
+
+    .distribution-count, .distribution-marks {
+      width: 120px;
+    }
+  }
+
+  button {
+    margin-top: 10px;
+  }
+}
+
+.success {
+  color: green;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.submit-button {
+  margin-top: 15px;
+  padding: 8px 16px;
+}
+
+.cancel-button {
+  margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  .test-paper-container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .distribution {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .distribution-count, .distribution-marks {
+      width: 100%;
+    }
+  }
+}

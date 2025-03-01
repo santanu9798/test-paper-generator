@@ -1,7 +1,23 @@
 <mat-nav-list>
   <a mat-list-item routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-  <a mat-list-item routerLink="/dashboard/add-question" routerLinkActive="active">Add Question</a>
-  <a mat-list-item>Create Test</a>
-  <a mat-list-item>Manage Papers</a>
+
+  <!-- Question Bank Group -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Question Bank</mat-panel-title>
+    </mat-expansion-panel-header>
+    <a mat-list-item routerLink="/dashboard/add-question" routerLinkActive="active">Add Question</a>
+    <a mat-list-item>View Questions</a> <!-- Placeholder for future view route -->
+  </mat-expansion-panel>
+
+  <!-- Test Paper Group -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Test Papers</mat-panel-title>
+    </mat-expansion-panel-header>
+    <a mat-list-item routerLink="/dashboard/create-test" routerLinkActive="active">Create Test</a>
+    <a mat-list-item>View Tests</a> <!-- Placeholder for future view route -->
+  </mat-expansion-panel>
+
   <a mat-list-item>Settings</a>
 </mat-nav-list>

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {MatListItem, MatNavList} from '@angular/material/list';
 import {RouterLink, RouterLinkActive} from '@angular/router';
+import {MatExpansionPanel, MatExpansionPanelHeader, MatExpansionPanelTitle} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,7 +9,10 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
     MatNavList,
     MatListItem,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    MatExpansionPanel,
+    MatExpansionPanelTitle,
+    MatExpansionPanelHeader
   ],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss'
