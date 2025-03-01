@@ -38,7 +38,7 @@ export class ForgotPasswordComponent {
       },
       error: (err) => {
         this.errorMessage = 'Request failed: ' + (err.error?.message || 'Try again');
-        console.error('Forgot password error:', err);
+        console.error({err: 'Forgot password error:'}, err);
       }
     });
   }

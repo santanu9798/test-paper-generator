@@ -41,7 +41,7 @@ export class RegistrationComponent {
       },
       error: (err) => {
         this.errorMessage = 'Registration failed: ' + (err.error?.message || 'Try again');
-        console.error('Registration error:', err);
+        console.error({err: 'Registration error:'}, err);
       }
     });
   }

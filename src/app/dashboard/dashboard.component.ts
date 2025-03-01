@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {HeaderComponent} from '../core/header/header.component';
 import {MatSidenav, MatSidenavContainer, MatSidenavContent} from '@angular/material/sidenav';
 import {SidebarComponent} from '../core/sidebar/sidebar.component';
+import {RouterOutlet} from '@angular/router';
 import {FooterComponent} from '../core/footer/footer.component';
 
 @Component({
@@ -11,9 +12,10 @@ import {FooterComponent} from '../core/footer/footer.component';
     HeaderComponent,
     MatSidenavContainer,
     SidebarComponent,
-    MatSidenavContent,
+    RouterOutlet,
+    FooterComponent,
     MatSidenav,
-    FooterComponent
+    MatSidenavContent
   ],
   styleUrls: ['./dashboard.component.scss']
 })

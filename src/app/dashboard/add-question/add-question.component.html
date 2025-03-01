@@ -1,0 +1,66 @@
+<div class="add-question-container">
+  <h2>Add New Question</h2>
+  <form #questionForm="ngForm" (ngSubmit)="addQuestion(questionForm)" class="question-form">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Question Text</mat-label>
+      <input matInput type="text" name="question" [(ngModel)]="question" required #questionInput="ngModel">
+      <mat-error *ngIf="questionInput.errors?.['required'] && questionInput.touched">Question text is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Question Type</mat-label>
+      <mat-select name="type" [(ngModel)]="type" required #typeInput="ngModel">
+        <mat-option *ngFor="let type of questionTypes" [value]="type">{{ type }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="typeInput.errors?.['required'] && typeInput.touched">Type is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Topic</mat-label>
+      <input matInput type="text" name="topic" [(ngModel)]="topic" required #topicInput="ngModel">
+      <mat-error *ngIf="topicInput.errors?.['required'] && topicInput.touched">Topic is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Difficulty</mat-label>
+      <mat-select name="difficulty" [(ngModel)]="difficulty" required #difficultyInput="ngModel">
+        <mat-option *ngFor="let level of difficultyLevels" [value]="level">{{ level }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="difficultyInput.errors?.['required'] && difficultyInput.touched">Difficulty is required</mat-error>
+    </mat-form-field>
+
+    <div class="options">
+      <h3>Options</h3>
+      <div *ngFor="let option of options; let i = index" class="option">
+        <mat-form-field appearance="outline" class="option-text">
+          <mat-label>Option {{ i + 1 }}</mat-label>
+          <input matInput type="text" [name]="'option' + i" [(ngModel)]="options[i]" required #optionInput="ngModel">
+          <mat-error *ngIf="optionInput.errors?.['required'] && optionInput.touched">Option {{ i + 1 }} is required</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Correct Answer</mat-label>
+      <input matInput type="text" name="correctAnswer" [(ngModel)]="correctAnswer" required #answerInput="ngModel">
+      <mat-error *ngIf="answerInput.errors?.['required'] && answerInput.touched">Correct answer is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Marks</mat-label>
+      <input matInput type="number" name="marks" [(ngModel)]="marks" required min="1" #marksInput="ngModel">
+      <mat-error *ngIf="marksInput.errors?.['required'] && marksInput.touched">Marks are required</mat-error>
+      <mat-error *ngIf="marksInput.errors?.['min'] && marksInput.touched">Marks must be at least 1</mat-error>
+    </mat-form-field>
+
+    <div class="success" *ngIf="successMessage">{{ successMessage }}</div>
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="questionForm.invalid" class="submit-button">
+      Add Question
+    </button>
+    <button mat-button color="warn" type="button" (click)="router.navigate(['/dashboard'])" class="cancel-button">
+      Cancel
+    </button>
+  </form>
+</div>

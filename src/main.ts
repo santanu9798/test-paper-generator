@@ -12,4 +12,4 @@ bootstrapApplication(AppComponent, {
     provideHttpClient()
   ]
 })
-  .catch(err => console.error(err));
+  .catch(err => console.error({err: err}));

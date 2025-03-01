@@ -19,7 +19,7 @@ export class AuthService {
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login'])
       .then(() => console.log('Navigated to login, After logout!'))
-      .catch(err => console.error('Navigation failed:', err));
+      .catch(err => console.error({err: 'Navigation failed:'}, err));
   }
 
   register(fullName: string, email: string, password: string): Observable<{ message: string }> {
