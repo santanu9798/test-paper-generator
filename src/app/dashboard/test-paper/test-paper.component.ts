@@ -76,7 +76,7 @@ export class TestPaperComponent {
     this.testPaperService.createTestPaper(testPaperData).subscribe({
       next: (response) => {
         this.successMessage = response.message || 'Test paper created successfully';
-        setTimeout(() => this.router.navigate(['/dashboard']), 2000);
+        setTimeout(() => this.router.navigate(['/dashboard/view-tests']), 2000);
       },
       error: (err) => {
         this.errorMessage = err.error?.error || 'Failed to create test paper';

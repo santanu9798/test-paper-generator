@@ -18,6 +18,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import {TestPaperComponent} from './test-paper/test-paper.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTableModule,
+    MatSortModule
   ]
 })
 export class DashboardModule { }

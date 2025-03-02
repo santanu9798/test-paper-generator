@@ -59,7 +59,7 @@ export class AddQuestionComponent {
     this.questionBankService.addQuestion(questionData).subscribe({
       next: (response) => {
         this.successMessage = response.message || 'Question added successfully';
-        setTimeout(() => this.router.navigate(['/dashboard']), 2000);
+        setTimeout(() => this.router.navigate(['/dashboard/view-questions']), 2000);
       },
       error: (err) => {
         this.errorMessage = err.error?.error || 'Failed to add question';

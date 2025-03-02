@@ -10,7 +10,6 @@ export class QuestionBankService {
 
   constructor(private http: HttpClient) {}
 
-  // Add a new question to the question bank
   addQuestion(questionData: {
     question: string,
     type: string,
@@ -23,8 +22,23 @@ export class QuestionBankService {
     return this.http.post<{ message: string }>(this.apiUrl, questionData);
   }
 
-  // Placeholder for retrieving all questions (optional, can be implemented later)
-  getQuestions(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  getQuestions(): Observable<{
+    question: string,
+    type: string,
+    topic: string,
+    difficulty: string,
+    options: string[],
+    correctAnswer: string,
+    marks: number
+  }[]> {
+    return this.http.get<{
+      question: string,
+      type: string,
+      topic: string,
+      difficulty: string,
+      options: string[],
+      correctAnswer: string,
+      marks: number
+    }[]>(this.apiUrl);
   }
 }

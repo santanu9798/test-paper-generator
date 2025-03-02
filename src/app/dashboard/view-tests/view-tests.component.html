@@ -1,0 +1,59 @@
+<div class="view-tests-container">
+  <h2>View Test Papers</h2>
+
+  <mat-form-field appearance="outline" class="filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search test papers...">
+  </mat-form-field>
+
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let test">{{ test.name }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="courseName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Course Name</mat-header-cell>
+      <mat-cell *matCellDef="let test">{{ test.courseName }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="courseCode">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Course Code</mat-header-cell>
+      <mat-cell *matCellDef="let test">{{ test.courseCode }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="totalMarks">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Total Marks</mat-header-cell>
+      <mat-cell *matCellDef="let test">{{ test.totalMarks }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="totalQuestions">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Total Questions</mat-header-cell>
+      <mat-cell *matCellDef="let test">{{ test.totalQuestions }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="credit">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Credit</mat-header-cell>
+      <mat-cell *matCellDef="let test">{{ test.credit }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="totalTime">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Total Time (min)</mat-header-cell>
+      <mat-cell *matCellDef="let test">{{ test.totalTime }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="distributions">
+      <mat-header-cell *matHeaderCellDef>Distributions</mat-header-cell>
+      <mat-cell *matCellDef="let test">
+        <ul class="distribution-list">
+          <li *ngFor="let dist of test.distributions">
+            {{ dist.type }}: {{ dist.count }} questions, {{ dist.marksPerQuestion }} marks each
+          </li>
+        </ul>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

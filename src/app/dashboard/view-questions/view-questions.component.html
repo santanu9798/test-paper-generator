@@ -1,0 +1,48 @@
+<div class="view-questions-container">
+  <h2>View Questions</h2>
+
+  <mat-form-field appearance="outline" class="filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search questions...">
+  </mat-form-field>
+
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2">
+    <ng-container matColumnDef="question">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Question</mat-header-cell>
+      <mat-cell *matCellDef="let question">{{ question.question }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Type</mat-header-cell>
+      <mat-cell *matCellDef="let question">{{ question.type }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="topic">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Topic</mat-header-cell>
+      <mat-cell *matCellDef="let question">{{ question.topic }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="difficulty">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Difficulty</mat-header-cell>
+      <mat-cell *matCellDef="let question">{{ question.difficulty }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="options">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Options</mat-header-cell>
+      <mat-cell *matCellDef="let question">{{ question.options.join(', ') }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="correctAnswer">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Correct Answer</mat-header-cell>
+      <mat-cell *matCellDef="let question">{{ question.correctAnswer }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="marks">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Marks</mat-header-cell>
+      <mat-cell *matCellDef="let question">{{ question.marks }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
