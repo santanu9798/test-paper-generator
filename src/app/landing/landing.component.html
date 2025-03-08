@@ -1,0 +1,54 @@
+<div class="landing-container">
+  <!-- Header with Login and Registration -->
+  <header class="header">
+    <div class="logo">
+      <img ngSrc="/assets/logo.png" height="75" width="75" alt="Test Paper Generator"/>
+    </div>
+    <div class="header-actions">
+      <button mat-button (click)="navigateToLogin()" class="auth-button">
+        <mat-icon>login</mat-icon> Login
+      </button>
+      <button mat-button (click)="navigateToRegister()" class="auth-button">
+        <mat-icon>person_add</mat-icon> Register
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <h2>Welcome to Test Paper Generator</h2>
+    <p class="intro">Create, manage, and export test papers with ease. Explore the key features of our application:</p>
+
+    <ul class="feature-list">
+      <li>
+        <mat-icon>create</mat-icon>
+        <span>Create Custom Test Papers</span> - Design test papers tailored to your course requirements.
+      </li>
+      <li>
+        <mat-icon>list_alt</mat-icon>
+        <span>Manage Questions</span> - Add, edit, and organize questions in the question bank.
+      </li>
+      <li>
+        <mat-icon>view_list</mat-icon>
+        <span>View and Edit Tests</span> - Access a list of all test papers with options to view or modify.
+      </li>
+      <li>
+        <mat-icon>picture_as_pdf</mat-icon>
+        <span>Export to PDF</span> - Download test papers in PDF format for easy distribution.
+      </li>
+      <li>
+        <mat-icon>timer</mat-icon>
+        <span>Time Management</span> - Set and track total time for each test paper.
+      </li>
+    </ul>
+
+    <div class="call-to-action">
+      <button mat-raised-button color="primary" (click)="navigateToLogin()">Get Started</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Test Paper Generator. All rights reserved.</p>
+  </footer>
+</div>

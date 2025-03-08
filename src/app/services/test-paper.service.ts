@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 // Define the interfaces based on the DTO structure
 export interface TestPaper {
+  id: number,
   name: string;
   courseName: string;
   courseCode: string;
@@ -29,20 +30,19 @@ export class TestPaperService {
 
   constructor(private http: HttpClient) {}
 
-  /**
-   * Creates a new test paper by sending the data to the backend API.
-   * @param testPaperData The test paper data to create
-   * @returns Observable with the response message
-   */
   createTestPaper(testPaperData: TestPaper): Observable<{ message: string }> {
     return this.http.post<{ message: string }>(`${this.apiUrl}/generate`, testPaperData);
   }
 
-  /**
-   * Placeholder method to retrieve all test papers (optional, for future use).
-   * @returns Observable with an array of test papers
-   */
   getTestPapers(): Observable<TestPaper[]> {
     return this.http.get<TestPaper[]>(this.apiUrl);
+  }
+
+  getTestPaper(id: number): Observable<TestPaper> {
+    return this.http.get<TestPaper>(`${this.apiUrl}/${id}`);
+  }
+
+  deleteTestPaper(id: number): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(`${this.apiUrl}/${id}`);
   }
 }

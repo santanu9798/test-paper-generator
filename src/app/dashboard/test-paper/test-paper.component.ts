@@ -25,6 +25,7 @@ import {NgForOf, NgIf} from '@angular/common';
   styleUrls: ['./test-paper.component.scss']
 })
 export class TestPaperComponent {
+  id: number = 0;
   name: string = '';
   courseName: string = '';
   courseCode: string = '';
@@ -62,6 +63,7 @@ export class TestPaperComponent {
     this.successMessage = '';
     this.errorMessage = '';
     const testPaperData: TestPaper = {
+      id: this.id,
       name: this.name,
       courseName: this.courseName,
       courseCode: this.courseCode,
