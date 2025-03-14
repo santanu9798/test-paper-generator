@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Edit Question</h2>
+<mat-dialog-content>
+  <form #editForm="ngForm">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Question</mat-label>
+      <input matInput [(ngModel)]="data.question" name="question" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Type</mat-label>
+      <input matInput [(ngModel)]="data.type" name="type" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Topic</mat-label>
+      <input matInput [(ngModel)]="data.topic" name="topic" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Difficulty</mat-label>
+      <input matInput [(ngModel)]="data.difficulty" name="difficulty" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Options (comma-separated)</mat-label>
+      <input matInput [(ngModel)]="optionsString" name="options" required (blur)="updateOptions()">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Correct Answer</mat-label>
+      <input matInput [(ngModel)]="data.correctAnswer" name="correctAnswer" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Marks</mat-label>
+      <input matInput type="number" [(ngModel)]="data.marks" name="marks" required>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!editForm.valid">Save</button>
+</mat-dialog-actions>

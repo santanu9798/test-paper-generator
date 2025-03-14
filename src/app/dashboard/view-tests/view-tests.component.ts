@@ -100,4 +100,5 @@ export class ViewTestsComponent implements OnInit {
     console.log('Exporting test paper to PDF:', test);
     alert('PDF export triggered for ' + test.name + ' (placeholder)');
   }
+
 }
